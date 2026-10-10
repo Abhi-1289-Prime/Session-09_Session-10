@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhi Raj Singh | Portfolio</title>
+  <meta name="description" content="Personal portfolio of Abhi Raj Singh — B.Tech CSE student and aspiring Data Engineer." />
+  <style>
+    :root{
+      --bg:#07080d; --card:#10121a; --text:#f5f7ff; --muted:#9da3b4;
+      --line:rgba(255,255,255,.09); --accent:#7c5cff; --accent2:#00d4ff;
+      --max:1100px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(124,92,255,.18),transparent 28%),
+        radial-gradient(circle at 85% 20%,rgba(0,212,255,.10),transparent 25%),
+        var(--bg);
+      color:var(--text);line-height:1.6;overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(92%,var(--max));margin:auto}
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:20;
+      background:rgba(7,8,13,.72);backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line)
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;font-size:1.15rem;letter-spacing:-.5px}
+    .logo span{color:var(--accent)}
+    .links{display:flex;gap:28px;color:#c8ccda;font-size:.92rem}
+    .links a:hover{color:#fff}
+    .menu{display:none;background:none;border:0;color:#fff;font-size:1.5rem}
+    section{padding:100px 0}
+    .hero{min-height:100vh;display:flex;align-items:center;padding-top:130px}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+    .badge{
+      display:inline-flex;padding:7px 13px;border:1px solid rgba(124,92,255,.35);
+      background:rgba(124,92,255,.09);border-radius:999px;color:#cfc7ff;font-size:.82rem;margin-bottom:22px
+    }
+    h1{font-size:clamp(3rem,7vw,6rem);line-height:.95;letter-spacing:-5px;margin-bottom:25px}
+    .gradient{background:linear-gradient(100deg,#fff 20%,#9f8cff 55%,#58dcff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:1.1rem;color:var(--muted);max-width:650px}
+    .buttons{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+    .btn{padding:12px 19px;border-radius:12px;border:1px solid var(--line);font-weight:700;transition:.25s}
+    .btn.primary{background:#fff;color:#090a0f}
+    .btn.secondary{background:rgba(255,255,255,.04)}
+    .btn:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.25)}
+    .profile-card{
+      padding:30px;border:1px solid var(--line);border-radius:28px;
+      background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+      box-shadow:0 30px 100px rgba(0,0,0,.35)
+    }
+    .avatar{
+      width:120px;height:120px;border-radius:50%;display:grid;place-items:center;
+      margin-bottom:22px;font-size:2.4rem;font-weight:900;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:white;box-shadow:0 0 55px rgba(124,92,255,.35)
+    }
+    .profile-card h3{font-size:1.45rem}.profile-card p{color:var(--muted);margin-top:6px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:25px}
+    .stat{padding:14px;border:1px solid var(--line);border-radius:15px;background:rgba(0,0,0,.18)}
+    .stat strong{display:block;font-size:1.2rem}.stat span{font-size:.75rem;color:var(--muted)}
+    .section-head{margin-bottom:35px}
+    .eyebrow{color:#9f8cff;text-transform:uppercase;letter-spacing:2px;font-size:.75rem;font-weight:800}
+    h2{font-size:2.5rem;letter-spacing:-1.5px;margin-top:7px}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .card{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:22px;padding:27px}
+    .card p{color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .skill{padding:8px 12px;border-radius:999px;background:rgba(124,92,255,.09);border:1px solid rgba(124,92,255,.2);font-size:.86rem}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+    .project-number{color:#7566c9;font-size:.8rem;font-weight:800}
+    .project h3{font-size:1.35rem;margin:12px 0 7px}
+    .project p{color:var(--muted);font-size:.92rem}
+    .tagline{margin-top:16px;color:#d9dbea;font-size:.88rem}
+    .timeline{display:grid;gap:16px}
+    .timeline-item{display:grid;grid-template-columns:130px 1fr;gap:25px}
+    .timeline-year{color:#9f8cff;font-weight:800}
+    .timeline-content{border-left:1px solid var(--line);padding-left:25px}
+    .timeline-content h3{margin-bottom:4px}.timeline-content p{color:var(--muted)}
+    .contact{text-align:center}
+    .contact .card{padding:55px 25px}
+    .contact p{max-width:600px;margin:12px auto;color:var(--muted)}
+    footer{padding:30px 0;border-top:1px solid var(--line);color:#777d8d;text-align:center;font-size:.85rem}
+    .reveal{opacity:0;transform:translateY(20px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:760px){
+      .links{display:none}.menu{display:block}
+      .links.open{display:flex;position:absolute;top:72px;left:0;right:0;padding:20px;background:#090a10;flex-direction:column;gap:16px}
+      .hero-grid,.about,.projects{grid-template-columns:1fr}
+      h1{letter-spacing:-3px}.hero{padding-top:120px}
+      .timeline-item{grid-template-columns:1fr;gap:5px}.timeline-content{padding-left:15px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#home">AR<span>.</span></a>
+      <button class="menu" aria-label="Open menu">☰</button>
+      <div class="links">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+        <a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="badge">B.Tech CSE • Aspiring Data Engineer</div>
+          <h1>Hi, I'm <span class="gradient">Abhi.</span></h1>
+          <p>
+            A Computer Science student at JECRC University who enjoys building things,
+            learning technology, and turning ideas into useful projects.
+            Currently focused on Python, databases, and the path toward Data Engineering.
+          </p>
+          <div class="buttons">
+            <a class="btn primary" href="#projects">View My Work ↓</a>
+            <a class="btn secondary" href="#contact">Let's Connect</a>
+          </div>
+        </div>
+        <div class="profile-card reveal">
+          <div class="avatar">AR</div>
+          <h3>Abhi Raj Singh</h3>
+          <p>Computer Science & Engineering</p>
+          <div class="stats">
+            <div class="stat"><strong>2029</strong><span>Graduation</span></div>
+            <div class="stat"><strong>Python</strong><span>Learning</span></div>
+            <div class="stat"><strong>Data</strong><span>Goal</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">01 — About</div><h2>A little about me.</h2></div>
+        <div class="about">
+          <div class="card reveal">
+            <p>
+              I'm a B.Tech CSE student at JECRC University, Jaipur. I'm building my
+              foundation in programming and computer science while exploring how real
+              software systems work.
+            </p><br>
+            <p>
+              My current direction is Data Engineering — learning Python, SQL,
+              databases, data structures, Git, and the technologies that power
+              reliable data pipelines.
+            </p>
+          </div>
+          <div class="card reveal" id="skills">
+            <h3>Tech I'm working with</h3>
+            <div class="skills">
+              <span class="skill">Python</span><span class="skill">C</span>
+              <span class="skill">C++</span><span class="skill">SQL</span>
+              <span class="skill">HTML</span><span class="skill">CSS</span>
+              <span class="skill">JavaScript</span><span class="skill">Git</span>
+              <span class="skill">GitHub</span><span class="skill">DSA</span>
+              <span class="skill">Computer Networks</span><span class="skill">Databases</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">02 — Projects</div><h2>Things I've built.</h2></div>
+        <div class="projects">
+          <article class="card project reveal">
+            <div><div class="project-number">PROJECT 01</div><h3>Mental Health Support Platform</h3>
+            <p>A concept for a student-focused platform offering anonymous support, mood tracking, resources, and guidance.</p></div>
+            <div class="tagline">Product thinking • AI tools • Web concepts</div>
+          </article>
+          <article class="card project reveal">
+            <div><div class="project-number">PROJECT 02</div><h3>Python Learning Projects</h3>
+            <p>A growing collection of beginner Python programs covering functions, loops, recursion, strings, lists, and problem solving.</p></div>
+            <div class="tagline">Python • Problem Solving</div>
+          </article>
+          <article class="card project reveal">
+            <div><div class="project-number">PROJECT 03</div><h3>Data Engineering Roadmap</h3>
+            <p>A personal learning path covering Python, SQL, databases, Git, data structures, pipelines, and future cloud technologies.</p></div>
+            <div class="tagline">Python • SQL • Data</div>
+          </article>
+          <article class="card project reveal">
+            <div><div class="project-number">PROJECT 04</div><h3>Developer Portfolio</h3>
+            <p>This website — designed as a simple personal home on the web that can grow with future projects and achievements.</p></div>
+            <div class="tagline">HTML • CSS • JavaScript</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">03 — Journey</div><h2>Education & direction.</h2></div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2025 — 2029</div>
+            <div class="timeline-content"><h3>B.Tech — Computer Science & Engineering</h3><p>JECRC University, Jaipur</p></div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-year">Now</div>
+            <div class="timeline-content"><h3>Building the fundamentals</h3><p>Programming, DSA, Computer Networks, databases, Git/GitHub and web development.</p></div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-year">Next</div>
+            <div class="timeline-content"><h3>Data Engineering</h3><p>Deepening Python and SQL, then moving toward data pipelines, cloud, and production-grade data systems.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact">
+        <div class="card reveal">
+          <div class="eyebrow">04 — Contact</div>
+          <h2>Let's build something.</h2>
+          <p>Want to collaborate, talk tech, or just say hello? Add your real contact links below and you're ready to go.</p>
+          <div class="buttons" style="justify-content:center">
+            <a class="btn primary" href="mailto:your.email@example.com">Email Me</a>
+            <a class="btn secondary" href="https://github.com/" target="_blank">GitHub</a>
+            <a class="btn secondary" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Abhi Raj Singh • Built with HTML, CSS & JavaScript</footer>
+
+  <script>
+    const menu = document.querySelector('.menu');
+    const links = document.querySelector('.links');
+    menu.addEventListener('click', () => links.classList.toggle('open'));
+    document.querySelectorAll('.links a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
